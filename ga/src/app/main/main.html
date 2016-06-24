@@ -1,0 +1,61 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <h2>
+      Rozwiązanie zadania.
+    </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1 col-md-4 col-md-offset-2">
+      <input type="text" class="form-control" placeholder="Wyszukaj ludzi"
+      ng-model="pattern"
+      ng-model-options="{debounce:400}"
+      ng-change="filterRecords(pattern, sortMethod)" />
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <label id="sort-label" for="sortby">Sortuj wg:</label>
+        <select class="form-control"
+         id="sortby"
+         ng-init="sortMethod='byLastName'"
+         ng-model="sortMethod"
+         ng-change="filterRecords(pattern, sortMethod)"
+         >
+          <option value="byName">imię</option>
+          <option value="byLastName">nazwisko</option>
+          <option value="byAge">wiek</option>
+        </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th id="name">Imię</th>
+            <th id="last-name">Nazwisko</th>
+            <th id="age">Wiek</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="person in people">
+          <td>
+            {{person.name}}
+          </td>
+          <td>
+            {{person.lastName}}
+          </td>
+          <td>
+            {{person.age}}
+          </td>
+        </tr>
+      </table>
+      <ul class="pagination">
+        <li ng-repeat="i in getNumber(pages) track by $index"
+        ng-class="{'active': $index == activePage}"><a href="" ng-click="getPage($index + 1);">{{$index + 1}}</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>

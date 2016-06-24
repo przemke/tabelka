@@ -1,0 +1,13 @@
+{
+  "name"         : "server",
+  "version"      : "0.0.0",
+  "description"  : "express-server",
+  "main"         : "server.js",
+  "author"       : "przemek",
+  "dependencies" : {
+    "body-parser"    : "^1.4.3",
+    "express"        : "^4.13.4",
+    "method-override": "^2.1.3",
+    "morgan"         : "^1.1.1"
+  }
+}
